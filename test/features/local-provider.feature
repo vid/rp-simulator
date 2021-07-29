@@ -1,7 +1,7 @@
 
 This tests that the local provider and RP are listening, logs in, then logs out. 
 
-  Backgrounds: local-provider, local-rp
+  Backgrounds: browser, local-provider, local-rp
 
     When the relying party is listening
     And the openid provider is listening
