@@ -53,7 +53,7 @@ export class ServerExpress {
     app.get('/success', (req, res) => res.send('<title>success - logout</title>Success<br /><form action="/logout"><input type="submit" value="Logout"></form>'));
     app.get('/error', (req, res) => res.send('error'));
     app.get('/logout', (req, res) => {
-      res.redirect(client.endSessionUrl());
+      res.redirect(client.endSessionUrl({ client_id: config.client_id }));
     });
     app.get('/logout/callback', (req, res) => {
       (req as any).logout();
