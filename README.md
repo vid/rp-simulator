@@ -1,22 +1,6 @@
 # rp-simulator
 
-Create a config.ts file that looks something like this:
+`npm i`, create a config.ts file based on local-config.ts, then `npm start`.
 
-```
-import { ClientAuthMethod } from 'openid-client';
+`npm test` to run e2e tests.
 
-export const ap = 'http://localhost:3000';
-
-export const sessionSecret = 'keyboard cattens';
-
-export const config = {
-  client_id: 'someclient',
-  client_secret: 'somesecret',
-  grant_types: ['refresh_token', 'authorization_code', 'openid'],
-  redirect_uris: ['http://localhost:3100/auth/callback'],
-  post_logout_redirect_uris: ['http://localhost:3100/logout/callback'],
-  token_endpoint_auth_method: 'client_secret_post' as ClientAuthMethod,
-};
-
-
-```
