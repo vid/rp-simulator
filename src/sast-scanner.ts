@@ -1,7 +1,7 @@
-import { IStepper, IExtensionConstructor, OK, TWorld,  } from '@haibun/core/build/lib/defs';
-import { actionNotOK } from '@haibun/core/build/lib/util';
+import { IStepper, IExtensionConstructor, TWorld } from '@haibun/core/build/lib/defs';
+import { actionNotOK, actionOK } from '@haibun/core/build/lib/util';
 
-const snykApiNotOk = require('../res/snyk-api-notok.json');
+const snykApiOk = require('../res/snyk-api-ok.json');
 
 type TScanResult = {
   ok: boolean;
@@ -20,9 +20,11 @@ abstract class TSASTScanner {
 
 class SnykScanner extends TSASTScanner {
   scan() {
-    return snykApiNotOk;
+    return snykApiOk;
   }
 }
+const pjson = require('../package.json');
+const summary = `SAST Scan via Snyk (v${pjson.version})`;
 
 const SASTScanner: IExtensionConstructor = class SASTSCanner implements IStepper {
   world: TWorld;
@@ -37,6 +39,7 @@ const SASTScanner: IExtensionConstructor = class SASTSCanner implements IStepper
       return this.scanner;
     }
     const scannerName = this.world.shared.get('SAST scanner');
+
     if (scannerName === 'Snyk') {
       this.scanner = new SnykScanner(this.world);
     }
@@ -53,9 +56,9 @@ const SASTScanner: IExtensionConstructor = class SASTSCanner implements IStepper
         const scanner = this.getScanner();
         const result = scanner.scan();
         if (result.ok) {
-          return OK;
+          return actionOK({ evidence: { summary, details: result } });
         }
-        return actionNotOK(result.issues.vulnerabilities[0].title, result.issues);
+        return actionNotOK(result.issues.vulnerabilities[0].title, { topics: { issues: { summary, details: result.issues } } });
       },
     },
   };

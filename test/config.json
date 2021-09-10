@@ -1,5 +1,5 @@
 {
   "mode": "all",
-  "steppers": ["vars", "haibun", "~@haibun/web-http","~@haibun/domain-webpage","~@haibun/web-playwright", "~@haibun/logger-websockets", "~@haibun/web-server-express", "./build/sast-scanner.js", "./build/ssl-scanner.js"],
+  "steppers": ["vars", "haibun", "~@haibun/web-http","~@haibun/domain-webpage","~@haibun/web-playwright", "~@haibun/logger-websockets", "~@haibun/web-server-express", "./build/poam.js","./build/sast-scanner.js", "./build/ssl-scanner.js"],
   "features": {}
 }

@@ -1,13 +1,14 @@
-import { IStepper, IExtensionConstructor, OK, TWorld, TNamed } from '@haibun/core/build/lib/defs';
-import { actionNotOK } from '@haibun/core/build/lib/util';
+import { IStepper, IExtensionConstructor, TWorld } from '@haibun/core/build/lib/defs';
+import { actionNotOK, actionOK } from '@haibun/core/build/lib/util';
 
-const snykApiNotOk = require('../res/snyk-api-notok.json');
+const sslLabsApiOK = require('../res/ssllabs-api-ok.json');
 
 type TScanResult = {
-  ok: boolean;
-  issues: {
-    vulnerabilities: [{ id: string; uri: string; title: string; description: string; from: string; disclosureTime: string; isPatchable: boolean }];
-  };
+  endpoints: [
+    {
+      grade: string;
+    }
+  ];
 };
 
 abstract class TSSLScanner {
@@ -23,9 +24,13 @@ class SSLLabsScanner extends TSSLScanner {
     super(world);
   }
   scan() {
-    return snykApiNotOk;
+    return sslLabsApiOK;
   }
 }
+
+const pjson = require('../package.json');
+
+const summary = `SSL scan via SSLLabs (v${pjson.version})`;
 
 const SSLScanner: IExtensionConstructor = class SSLScanner implements IStepper {
   world: TWorld;
@@ -40,25 +45,26 @@ const SSLScanner: IExtensionConstructor = class SSLScanner implements IStepper {
       return this.scanner;
     }
     const scannerName = this.world.shared.get('SSL scanner');
-    if (scannerName === 'Snyk') {
+    if (scannerName === 'SSLLabs') {
       this.scanner = new SSLLabsScanner(this.world);
     }
     if (!this.scanner) {
-      throw Error(`unknown SAST scanner type ${scannerName}`);
+      throw Error(`unknown SSL scanner type ${scannerName}`);
     }
     return this.scanner;
   }
 
   steps = {
-    sastScanning: {
+    sslScanning: {
       gwta: `SSL scanning passes with the highest rating`,
       action: async () => {
         const scanner = this.getScanner();
         const result = scanner.scan();
-        if (result.ok) {
-          return OK;
+
+        if (result.endpoints[0].grade === 'A+') {
+          return actionOK({ evidence: { summary, details: result } });
         }
-        return actionNotOK(result.issues.vulnerabilities[0].title, result.issues);
+        return actionNotOK(result.endpoints[0].grade, { topics: { issues: { summary, details: result } } });
       },
     },
   };
