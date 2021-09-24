@@ -3,15 +3,15 @@ This tests that the local provider and RP are listening, logs in, then logs out.
 
   Backgrounds: browser, local-provider, local-rp
 
-    When the http relying party is listening
-    And the http openid provider is listening
-    And the http openid provider has an oidc well-known configuration
+    When the relying party is listening
+    And the openid provider is listening
+    And the openid provider has an oidc well-known configuration
 
     When I open the relying party page
     And I click on login
     Then the URI should match openid provider interaction page
 
-    Start step delay of 900s
+    Start step delay of 300
 
 The local provider will accept any username and pasword for this test.
 

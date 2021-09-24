@@ -1,1 +1,0 @@
-SSL scanning passes with the highest rating
