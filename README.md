@@ -4,3 +4,4 @@
 
 `npm test` to run e2e tests.
 
+See the complementary project at https://github.com/vid/oidc-provider
