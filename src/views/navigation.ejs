@@ -1,0 +1,69 @@
+<div id="cn-left-col-gap"></div>
+<div id="cn-left-col"><div id="cn-left-col-inner">
+<section>
+	<h2 id="cn-nav">Primary navigation (left column)</h2>
+	<div class="cn-left-col-default">
+		<nav role="navigation">
+			<form action="" method="POST">
+				<section>
+					<h3><%= request_parameters %></h3>
+					<ul>
+						<li>
+							<label for="scope"><%= param_scope %>:</label>
+							<select id="scope" onchange="storeVal(this.id, this.value);">
+								<option value="o" selected>openid</option>
+								<option value="op">openid profile</option>
+								<option value="ope">openid profile email</option>
+							</select>
+						</li>
+						<li>
+							<label for="prompt">Prompt:</label>
+							<select id="prompt" onchange="storeVal(this.id, this.value);">
+								<option value="n">none</option>
+								<option value="l" selected>login</option>
+								<option value="s">select_account</option>
+								<option value="c">consent</option>
+								<option value="lc">login consent</option>
+								<option value="ls">login select_account</option>
+							</select>
+						</li>	
+						<li>
+							<label for="max_age">Max_age:</label>
+							<input id="max_age" value="1200" onchange="storeVal(this.id, this.value);"></input>
+						</li>
+						<li>
+							<label for="acr_values">Acr_values:</label>
+							<input id="acr_values" value="" onchange="storeVal(this.id, this.value);"></input>
+						</li>						
+						<li>
+							<label for="redirect_uri">redirect_uri:</label>
+							<input id="redirect_uri" value="" onchange="storeVal(this.id, this.value);"></input>
+						</li>						
+						<li>
+							<input id="nonce" type="checkbox" onclick="storeVal(this.id, this.checked);" checked>Nonce</input>
+						</li>
+						<li>
+							<input id="login_hint" type="checkbox" onclick="storeVal(this.id, this.checked);" checked>Login_hint</input>
+						</li>
+
+					</ul>
+				</section>
+				<section>
+					<h3><%= auth_request %></h3>
+					<ul>
+						<li><a id="login" href="/rpsim/login/<%= lang %>"><%= login %></a></li>
+					</ul>
+				</section>
+				<% if (isLoggedIn) { %>
+					<section>
+						<h3><%= logout_request %></h3>
+						<ul>
+							<li><a id="logout" href="/logout/<%= lang %>"><%= logout %></a></li>
+						</ul>
+					</section>
+				<% } %>	
+			</form>
+		</nav>
+	</div>
+</section>
+</div></div>
