@@ -1,4 +1,9 @@
 Set relying party to http://localhost:3100/
-
-
-Set relying party success to http://localhost:3100/success
+Set relying party home english page to http://localhost:3100/rpsim/home/en
+Set relying party login english page to http://localhost:3100/rpsim/login/en
+Set relying party success english page to http://localhost:3100/rpsim/response/en
+Set max_age to input[id=max_age]
+Set login to *[id=login]
+Set logout to *[id=logout]
+Set client1 to *[id=client1]
+Set debug to *[class="grant-debug"]

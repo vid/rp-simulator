@@ -1,0 +1,32 @@
+<div id="cn-leaf"></div>
+<div id="cn-banner" role="banner">
+	<p id="cn-banner-text">OIDC Relying Party Simulator</p>
+	<p>https://oidcrp1.yoursite.ca</p>
+</div>
+
+<nav role="navigation">
+	<div id="cn-cmb">
+		<h2>Common menu bar</h2>
+		<ul>
+			<li id="cn-cmb1">
+			<a href="<%= language_link %>" lang="<%= other_lang %>" title="<%= language_title %>"><%= language_label %></a></li>
+			<li id="cn-cmb2"><a href="<%= home_link %>" title="<%= home_title %>"><%= home_label %></a></li>
+			<li id="cn-cmb3"><a href="" title="<%= contactUs_title %>"><%= contactUs_label %></a></li>
+			<li id="cn-cmb4"><a href="" title="<%= help_title %>"><%= help_label %></a></li>
+			<li id="cn-cmb5"><a rel="search" href="" title="<%= search_title %>"><%= search_label %></a></li>
+			<li id="cn-cmb6"><a rel="external" href="<%= gc_link %>" title="<%= gc_title %>">canada.ca</a></li>
+		</ul>
+	</div>
+
+	<div id="cn-bcrumb">
+		<h2>Breadcrumb</h2>
+		<ol>
+			<li><a href="<%= home_link %>" title="<%= home_title %>"><%= home_label %></a>&nbsp;&gt;</li>
+			<% if (page === 'login') { %>
+				<li><a href="#" title="<%= title_l %>"><%= title_l %></a></li>
+			<% } else if (page === 'response') { %>	
+				<li><a href="#" title="<%= title_r %>"><%= title_r %></a></li>
+			<% } %>
+		</ol>
+	</div>
+</nav>

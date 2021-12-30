@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="<%= lang %>">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="schema.dcterms" href="http://purl.org/dc/terms/">
+	<title><%= title_h %></title>
+	
+	<!-- Favicon (optional) begins / Début du favicon (optionnel) -->
+	<link rel="shortcut icon" href="/images/favicon.ico">
+	<!-- Favicon (optional) ends / Find du favicon (optionnel) -->
+
+	<link href="/css/base.css" rel="stylesheet" type="text/css">
+	<link href="/css/util.css" rel="stylesheet" type="text/css">
+	<link href="/css/theme-clf2-nsi2.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
+	<link href="/css/theme-cats.css" rel="stylesheet" type="text/css">
+	<link href="/css/pf-if.css" rel="stylesheet" media="print" type="text/css">
+	<script type="text/javascript" src="/javascript/utils.js"></script>
+</head>
+<body onload="setOptionsValues()">
+<!-- Two column layout begins / Début de la mise en page de deux colonnes -->
+<div id="cn-body-inner-2col">
+	<div id="cn-head"><div id="cn-head-inner">
+	<header>
+	<!-- clf2-nsi2 theme begins / Début du thème clf2-nsi2 -->
+	<%- include('header')-%>
+	<!-- clf2-nsi2 theme ends / Fin du thème clf2-nsi2 -->
+	</header>
+	</div></div>
+	<!-- Header ends / Fin de l'en-tête -->
+
+	<div id="cn-cols">
+	<!-- Main content begins / Début du contenu principal --> 
+	<div id="cn-centre-col-gap"></div>
+	<div id="cn-centre-col" role="main"><div id="cn-centre-col-inner">
+	<section>
+		<!-- Content title begins / Début du titre du contenu -->
+		<header>
+			<h1 id="cn-cont"><%= content_htitle %></h1>
+		</header>
+		<!-- Content Title ends / Fin du titre du contenu -->
+
+		<!-- clf2-nsi2 theme begins / Début du thème clf2-nsi2 -->
+		<section>
+			<p><%= content_hnote %></p>
+		<br>
+		</section>
+		<!-- clf2-nsi2 theme ends / Fin du thème clf2-nsi2 -->
+	</section>
+	</div></div>
+	<!-- Main content ends / Fin du contenu principal --> 
+	
+	<!-- Primary navigation (left column) begins / Début de la navigation principale (colonne gauche) -->
+	<%- include('navigation')-%>
+	<!-- Primary navigation (left column) ends / Fin de la navigation principale (colonne gauche) -->
+
+</div>
+	<!-- Footer begins / Début du pied de page --> 
+	<%- include('footer')-%>
+	<!-- Footer ends / Fin du pied de page -->
+</div>
+<!-- Two column layout ends / Fin de la mis en page de deux colonnes -->
+
+</body></html>

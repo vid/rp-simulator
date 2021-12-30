@@ -108,6 +108,9 @@ OpenIDConnectStrategy.prototype.authenticate = function authenticate(req, option
         }
       }
 
+      //save the authentication request parameters
+      req.session.reqParams = params;
+
       this.redirect(client.authorizationUrl(params));
       return;
     }

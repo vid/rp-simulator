@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+Terms and conditions of use: http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Terms
+Conditions régissant l'utilisation : http://tbs-sct.ircan.gc.ca/projects/gcwwwtemplates/wiki/Conditions
+*/
+#cn-upper-msg {background: #369 url('../images/banner.jpg') no-repeat center center;}
+
+#cn-banner, #cn-banner-eng, #cn-banner-fra {background-color: #369;}
+
+.cn-left-col-default h3 {background-color: #369;}
+.cn-left-col-default #cn-search-box #cn-search, .cn-search-box .cn-search {border: 1px solid #369}
+.cn-left-col-default #cn-search-box #cn-search-submit, .cn-search-box .cn-search-submit {background-color: #369; color: #FFF}
+.cn-left-col-default li {border-top: 1px solid #369;}
+.cn-left-col-default form {margin-top: 0px; margin-bottom: 0px}
+
+#cn-pd-ul {border-top: 15px solid #369;}
+
+.cn-right-col-default h3 {background-color: #369;}
+
+#cn-in-pd {border-top: 15px solid #369;}
+
+table.results {
+	border-width: thin;
+	border-spacing: 0px;
+	border-style: none;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+	word-wrap: break-word;
+}
+
+table.results.tr {margin-top: 2px; margin-bottom: 2px}
+
+table.results td.label {
+	text-align: right;
+	font-weight: bold;
+	color: white;
+	padding-right: 10px;
+	border-width: 1px;
+	border-style: none;
+	border-color: gray;
+	background-color: #369;
+	font-size: 12px;
+}
+
+table.results td.content {
+	text-align: left;
+	font-style: oblique;
+	border-width: 1px;
+	padding-left: 10px;
+	padding-right: 25px;
+	border-style: none;
+	border-color: gray;
+	background-color: #CC9;
+	width:70%;
+}
+
+textarea {
+	width: 80%;
+	font-family: font-family: Courier New,Verdana,Arial, Helvetica,sans-serif;
+	font-size: small;
+	overflow: auto;
+}
+	
+button.cats_loa_btn {width: 100%;}
+
+#cats-csp-choice li {list-style-type: none; margin-top: 20px; margin-bottom: 20px;}
+
+#cats-csp-choice a:link, #cats-csp-choice a:visited {
+	text-decoration:none;
+	background:#369; none repeat scroll 0 0;
+	border:medium double;
+	font-size:100%;	
+	color:#fff!important;
+	padding:5px;
+}
+
+#cats-csp-choice a:hover, #cats-csp-choice a:active {
+	text-decoration:none;
+	background:#030; none repeat scroll 0 0;
+	border:medium double;
+	font-size:100%;	
+	color:#fff!important;
+	padding:5px;
+}
+
+body {
+	background-color: #666666;
+}
